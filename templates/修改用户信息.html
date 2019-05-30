@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    修改用户信息
+{% endblock %}
+{% block headers %}
+      <a href="/index/">回到主页</a>
+    <a href="/usercenter/">个人中心</a>
+    <a href="#">充值</a>
+    <a href="/reusercenter_repassword/">修改密码</a>
+{% endblock %}
+{% block body %}
+
+    <div>
+    <form action="/reusercenter_redit/" method="post">
+         {% csrf_token %}
+          {% if changefome.errors %}
+        <p>{{ changefome.errors }}</p>
+        {% endif %}
+        <p><label for="id_username">用户名:</label> <input type="text" name="username" value="{{ users.username }}" maxlength="150" required id="id_username"> <span class="helptext">必填。150个字符或者更少。包含字母，数字和仅有的@/./+/-/_符号。</span></p>
+        <p><label for="id_email">电子邮件地址:</label> <input type="email" name="email" value="{{ users.email }}" maxlength="254" id="id_email"></p>
+        <p><label for="id_昵称">昵称:</label> <input type="text" name="昵称" maxlength="50" id="id_昵称"></p>
+        <p><label for="id_生日">生日:</label> <input type="date" name="生日" id="id_生日"></p>
+
+{#       <p><label for="id_username">用户名:</label> <input type="text" name="username" maxlength="150" autofocus required id="id_username" value="{{ user.username }}"> <span class="helptext">必填。150个字符或者更少。包含字母，数字和仅有的@/./+/-/_符号。</span></p>#}
+{#<p><label for="id_email">电子邮件地址:</label> <input type="email" name="email" maxlength="254" id="id_email" value="{{ user.email }}"></p>#}
+{#<p><label for="id_昵称">昵称:</label> <input type="text" name="昵称" maxlength="50" id="id_昵称" value="{{ user.用户列表.昵称 }}"></p>#}
+{#<p><label for="id_生日">生日:</label> <input type="date" name="生日" id="id_生日" value="{{ user.用户列表.生日 }}"></p>#}
+        <button type="submit">提交</button>
+    </form>
+    </div>
+{% endblock %}

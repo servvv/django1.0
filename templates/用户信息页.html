@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    用户中心
+{% endblock %}
+{% block headers %}
+     <a href="/index/">回到主页</a>
+    <a href="#">充值</a>
+    <a href="/reusercenter_repassword/">修改密码</a>
+    <a href="/reusercenter_redit/">修改用户信息</a>
+{% endblock %}
+{% block body %}
+
+    <div>
+        <p>用户名：{{ user.username }}</p>
+        <p>邮箱：{{ user.email }}</p>
+        <p>生日：{{ user.用户列表.生日 }}</p>
+        <p>昵称：{{ user.用户列表.昵称 }}</p>
+        <p>余额：{{ user.用户列表.余额 }}</p>
+    </div>
+{% endblock %}
